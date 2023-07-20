@@ -167,6 +167,9 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
 }
 
+PORTONE_KEY = '6558725881621285'
+PORTONE_SECRET = 'q3kGbRfqy7wE9uHwWewRID1kcm4K8T9ffjjPON7OK28keVM0LVjmesZUFdKu8IM2YGh8CeQRjmcdM3oH'
+
 # JWT_AUTH = {
 #     'JWT_PAYLOAD_HANDLER':
 #     'rest_framework_jwt.utils.jwt_payload_handler',
