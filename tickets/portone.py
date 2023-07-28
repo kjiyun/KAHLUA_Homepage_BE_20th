@@ -12,7 +12,6 @@ def get_token():
     url = "https://api.iamport.kr/users/getToken"
 
     req = requests.post(url, data=access_data)
-    print('req', req)
     access_res = req.json()
     print('access_res', access_res)
 
