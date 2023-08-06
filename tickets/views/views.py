@@ -107,7 +107,13 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
                 examples={
                     "application/json": {
                         "status": "success",
-                        "data": {'id': 1}
+                        "data": {'id': 1,
+                                 'buyer':'깔루아1',
+                                 'phone_num':'010-1234-5678',
+                                 'member':'3',
+                                 'price':'15000',
+                                 'reservation_id': 'ABCDE12345',
+                                },
                     }
                 }
             ),
@@ -141,9 +147,11 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
         }, status=status.HTTP_400_BAD_REQUEST)
     
     @swagger_auto_schema(
-        operation_id='주문이 완료된 후 표시하는 View',
+        operation_id='주문이 완료된 후 표시 & 예매 티켓 조회',
         operation_description='''
+            전달된 쿼리 파라미터에 해당하는 예매 정보를 반환합니다.<br/>
             결제를 하고 나서 주문이 완료되었다는 화면을 표시할 때 사용됩니다.<br/>
+            또는 예매 티켓을 조회하는 경우 예매번호를 입력하여 예매 내역을 확인합니다.<br/>
             주문 번호에 해당하는 결제 완료 화면을 보여줍니다.<br/>
         ''',
         responses={
@@ -156,7 +164,8 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
                                  'buyer':'깔루아1',
                                  'phone_num':'010-1234-5678',
                                  'member':'3',
-                                 'price':'15000'
+                                 'price':'15000',
+                                 'reservation_id': 'ABCDE12345',
                                 }
                     }
                 }
