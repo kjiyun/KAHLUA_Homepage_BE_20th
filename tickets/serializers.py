@@ -4,7 +4,6 @@ from rest_framework import serializers
 from .models import GeneralTicket, FreshmanTicket
 
 class GeneralTicketDetailSerializer(serializers.ModelSerializer):
-    # price = serializers.SerializerMethodField()
 
     class Meta:
         model = GeneralTicket
@@ -18,6 +17,10 @@ class GeneralTicketDetailSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data):
+        member = validated_data.get('member', 1)
+        price = member * int(5000)
+        validated_data['price'] = price
+        
         ticket = GeneralTicket.objects.create(**validated_data)
 
         return ticket

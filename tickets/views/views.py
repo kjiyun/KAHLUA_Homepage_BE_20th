@@ -11,8 +11,8 @@ from rest_framework.response import Response
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 
-from .models import GeneralTicket, FreshmanTicket, Participant, OrderTransaction
-from .serializers import GeneralTicketDetailSerializer, FreshmanTicketDetailSerializer
+from ..models import GeneralTicket, FreshmanTicket, Participant, OrderTransaction
+from ..serializers import GeneralTicketDetailSerializer, FreshmanTicketDetailSerializer
 
 # import traceback
 
@@ -122,7 +122,7 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
         phone_list = order_info.getlist('phone')
         
         serializer = self.get_serializer(data=order_info)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             new_order = serializer.save()
 
             mem = dict(zip(name_list, phone_list))
@@ -130,10 +130,10 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
             for key, value in mem.items():
                 mem = Participant(name=key, phone_num=value, general_ticket=new_order)
                 mem.save()
-        
+
             return Response({
                 'status': 'success',
-                'data': new_order.id,
+                'data': serializer.data,
             }, status=status.HTTP_201_CREATED)
         
         return Response({
