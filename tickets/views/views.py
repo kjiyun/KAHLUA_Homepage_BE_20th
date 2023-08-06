@@ -67,7 +67,7 @@ class FreshmanTicketOrderView(viewsets.ModelViewSet):
             return Response({
                 'status': 'success',
                 'data': serializer.data,
-            }, status=status.HTTP_201_CREATED)
+            }, status=status.HTTP_200_OK)
         
         return Response({
             'status':'error',
@@ -134,7 +134,7 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
             return Response({
                 'status': 'success',
                 'data': serializer.data,
-            }, status=status.HTTP_201_CREATED)
+            }, status=status.HTTP_200_OK)
         
         return Response({
             'status':'error',
@@ -167,14 +167,19 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
         }
     )
     def get(self, request):
-        order_id = request.query_params.get('order_id')
-        order = GeneralTicket.objects.get(id=order_id)
-        serializer = self.get_serializer(order)
-        
-        return Response({
-                'status': 'success',
-                'data': serializer.data
-            }, status=status.HTTP_200_OK)
+        try:
+            request_id = request.query_params.get('reservation_id')
+            order = GeneralTicket.objects.get(reservation_id=request_id)
+            serializer = self.get_serializer(order)
+            
+            return Response({
+                    'status': 'success',
+                    'data': serializer.data
+                }, status=status.HTTP_200_OK)
+        except:
+            return Response({
+                'status': 'error',
+            }, status=status.HTTP_400_BAD_REQUEST)
     
 
 class OrderCheckoutView(viewsets.ModelViewSet):
