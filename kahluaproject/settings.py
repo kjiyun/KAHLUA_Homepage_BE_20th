@@ -19,11 +19,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, True))
 print('base', BASE_DIR)
 
-env_file = os.path.join(BASE_DIR, '.env')
-if os.path.exists(env_file):
-    environ.Env.read_env(
-        env_file=env_file
-    )
+# env_file = os.path.join(BASE_DIR, '.env')
+# if os.path.exists(env_file):
+#     environ.Env.read_env(
+#         env_file=env_file
+#     )
 
 SECRET_KEY = env('KAHLUA_BE_SECRET_KEY')
 STATE = env('KAHLUA_BE_STATE')
@@ -193,6 +193,8 @@ SIMPLE_JWT = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000' ,'http://localhost:8000']
+CORS_ALLOW_CREDENTIALS = True
 
 
 # JWT_AUTH = {
