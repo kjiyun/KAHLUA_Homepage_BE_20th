@@ -13,6 +13,9 @@ from datetime import timedelta
 from pathlib import Path
 import os
 import environ
+import django
+from django.utils.translation import gettext
+django.utils.translation.ugettext = gettext
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,7 +48,7 @@ SENDER_PHONE_NUM = env('SENDER_PHONE_NUM')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', ".ap-northeast-2.compute.amazonaws.com"]
 
 # Application definition
 AUTH_USER_MODEL = 'users.User'
@@ -62,7 +65,8 @@ PROJECT_APPS = [
     "users",
     "tickets",
     "core",
-    "application"
+    "application",
+    "kahlua_admin",
 ]
 THIRD_APPS = [
     'rest_framework',
@@ -91,7 +95,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    # 'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'kahluaproject.urls'
