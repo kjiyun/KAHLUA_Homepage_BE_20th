@@ -5,6 +5,5 @@ app_name = 'kahlua_admin'
 
 urlpatterns = [
     path('tickets/freshman_tickets/', FreshmanViewSet.as_view({'get':'list'}), name='freshman_list'),
-    path('tickets/general_tickets/list/', GeneralTicketListViewSet.as_view({'get':'list'}), name='general_list'),
-    # path('tickets/general_tickets/detail/', GeneralTicketDetailViewSet.as_view({'get':'get'}), name='general_detail'),
+    path('tickets/general_tickets/', GeneralTicketListViewSet.as_view({'get':'list'}), name='general_list'),
 ]
