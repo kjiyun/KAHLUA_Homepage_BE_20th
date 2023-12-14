@@ -239,6 +239,7 @@ class GeneralTicketOrderView(viewsets.ModelViewSet):
                                  'phone_num':'010-1234-5678',
                                  'member':'3',
                                  'price':'15000',
+                                 'status': False,
                                 },
                     }
                 }
