@@ -13,17 +13,20 @@ from datetime import timedelta
 from pathlib import Path
 import os
 import environ
+import django
+from django.utils.translation import gettext
+django.utils.translation.ugettext = gettext
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, True))
 print('base', BASE_DIR)
 
-# env_file = os.path.join(BASE_DIR, '.env')
-# if os.path.exists(env_file):
-#     environ.Env.read_env(
-#         env_file=env_file
-#     )
+env_file = os.path.join(BASE_DIR, '.env')
+if os.path.exists(env_file):
+    environ.Env.read_env(
+        env_file=env_file
+    )
 
 SECRET_KEY = env('KAHLUA_BE_SECRET_KEY')
 STATE = env('KAHLUA_BE_STATE')
@@ -92,7 +95,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    # 'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'kahluaproject.urls'

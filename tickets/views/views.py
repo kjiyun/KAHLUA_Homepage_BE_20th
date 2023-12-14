@@ -96,15 +96,8 @@ class FreshmanTicketOrderView(viewsets.ModelViewSet):
     @swagger_auto_schema(
         operation_id='신입생 예매 확인',
         operation_description='''
-            입력받은 student_id에 해당하는 티켓을 보여준다. <br/>
+            query parameter로 입력받은 student_id에 해당하는 티켓을 보여줍니다. <br/>
         ''',
-        request_body=openapi.Schema(
-            '신입생 예매 확인',
-            type=openapi.TYPE_OBJECT,
-            properties={
-                'student_id': openapi.Schema('학번', type=openapi.TYPE_STRING)
-            }
-        ),
         responses={
             "200": openapi.Response(
                 description="OK",
@@ -129,12 +122,12 @@ class FreshmanTicketOrderView(viewsets.ModelViewSet):
     )
     def get(self, request, *args, **kwargs):
         try:
-            student_id = request.query_params.get('student_id')
-            request = FreshmanTicket.objects.get(student_id=student_id)
+            reservation_id = request.query_params.get('reservation_id')
+            request = FreshmanTicket.objects.get(reservation_id=reservation_id)
             serializer = self.get_serializer(request)
 
             return Response({
-                'status': 'error',
+                'status': 'Success',
                 'data': serializer.data
             }, status=status.HTTP_200_OK)
         
