@@ -1,11 +1,13 @@
-![Kahlua (1)](https://github.com/kahluaband/Homepage_FE_20th/assets/109282927/0dc8d6f6-08e0-4339-ab41-a0adf53e2b0a)
+<img src="https://github.com/user-attachments/assets/9b42ebb8-a85c-4146-8596-b50f797b02f6" height=70% width=70%>
+
+
 🧷 https://kahluaband.com
 
 # KAHLUA_BE
 **KAHLUA BAND website** backend using django restframework
 
 ## 프로젝트 소개
-아~ 우리는 깔!깔!깔!깔루아!! 저희는 홍익대학교 컴퓨터공학과 밴드부 깔루아입니다.
+아~ 우리는 깔!깔!깔!깔루아!! 저희는 밴드부 깔루아입니다.
 
 매년 정기 공연을 진행하면서 공연 참석 희망자 수요 조사만 진행하고 현장예매로 티켓을 판매하였습니다. 이에 따라 수요 조사가 정확하지 않다는 단점도 있었고 현장 예매에 많은 시간이 소모된다는 단점이 존재했습니다.
 
