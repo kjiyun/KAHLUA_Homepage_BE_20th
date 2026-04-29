@@ -1,8 +1,6 @@
 <img src="https://github.com/user-attachments/assets/9b42ebb8-a85c-4146-8596-b50f797b02f6" height=70% width=70%>
 
 
-🧷 https://kahluaband.com
-
 # KAHLUA_BE
 **KAHLUA BAND website** backend using django restframework
 
@@ -12,7 +10,7 @@
 매년 정기 공연을 진행하면서 공연 참석 희망자 수요 조사만 진행하고 현장예매로 티켓을 판매하였습니다. 이에 따라 수요 조사가 정확하지 않다는 단점도 있었고 현장 예매에 많은 시간이 소모된다는 단점이 존재했습니다.
 
 따라서, 저희는 깔루아 공연을 보러오시는 관객분들이 조금 더 편하게 예매를 하실 수 있도록 예매 사이트를 만들었습니다. 예매 뿐만 아니라 동아리를 홍보하고 신입생 지원기간에는 지원도 사이트에서 함께 진행할 수 있도록 하였습니다.
-
+<!--
 ## Backend Member 
 
 <div align="left">
@@ -20,7 +18,7 @@
 | **강지윤** | **박상욱** | **심수연**  |
 | :------: |  :------: | :------:  |
 | [<img src="https://avatars.githubusercontent.com/u/112507402?v=4" height=200 width=200> <br/> @kjiyun](https://github.com/kjiyun) | [<img src="https://avatars.githubusercontent.com/u/140885810?v=4" height=200 width=200> <br/> @woogieon8on](https://github.com/woogieon8on) | [<img src="https://avatars.githubusercontent.com/u/81095801?v=4" height=200 width=200> <br/> @letthem](https://github.com/letthem)|
-
+-->
 </div>
 
 ## 개발 환경
